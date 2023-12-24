@@ -1,0 +1,198 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-image: url("sky.jpg");
+    background-size: cover;
+}
+
+.container h2 {
+    text-align: center;
+}
+
+.container {
+    border: 5px solid #d896ff;
+    padding: 10px;
+    width: 200px;
+    height: 310px;
+    background-color: #ffcbe9;
+    color: #7c3360;
+}
+
+.task,
+.sticky-note {
+    border: 3px solid #cc86bc;
+    padding: 10px;
+    margin-bottom: 5px;
+    cursor: grab;
+    word-wrap: break-word;
+    resize: both;
+    overflow: hidden;
+    position: relative;
+}
+
+.task.done {
+    background-color: #d4edda;
+}
+
+.container-notes h2 {
+    text-align: center;
+}
+
+.container-notes {
+    border: 5px solid #7c3360;
+    padding: 10px;
+    width: 100px;
+    height: 130px;
+    color: #7c3360;
+    min-height: 100px;
+    position: relative;
+    background-color: #ffcbe9;
+}
+
+.container,
+.container-notes {
+    border: 5px solid #7c3360;
+    padding: 10px;
+    background-color: #ffcbe9;
+    width: 250px;
+    position: relative;
+    margin: 10px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.container::before,
+.container::after,
+.container-notes::before,
+.container-notes::after {
+    content: '';
+    position: absolute;
+    background-color: #ffcbe9;
+    border-radius: 50%;
+}
+
+.container::before {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: -30px;
+}
+
+.container::after {
+    width: 80px;
+    height: 80px;
+    top: -40px;
+    right: -30px;
+}
+
+.container-notes::before {
+    width: 40px;
+    height: 40px;
+    top: -20px;
+    left: -20px;
+}
+
+.container-notes::after {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    right: -20px;
+}
+
+.container-wrapper {
+    padding: 0px 20px 20px 20px;
+}
+
+.container {
+    margin-bottom: 20px;
+}
+
+.container-notes {
+    margin-top: 100px;
+    background-color: #942c69;
+}
+
+
+.container-notes {
+    width: 200px;
+    height: 200px;
+    font-size: 15px;
+    padding: 8px;
+    margin-top: 20px;
+    background-color: #ffcbe9;
+    border: 5px solid #7c3360;
+    border-radius: 10px;
+    margin-left: 40px;
+}
+
+
+.container-countdown {
+    border: 5px solid #7c3360;
+    margin-top: 12px;
+    margin-left: 31px;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    background-color: #ffcbe9;
+    height: 200px;
+    background-color: #ffcbe9;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    color: #7c3360;
+}
+
+.btn-timer {
+    padding: 10px 10px;
+    font-size: 10px;
+    background-color: #897080;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.input-timer {
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 5px;
+    color: #7c3360;
+}
+
+#timer {
+    font-size: 20px;
+}
+
+.scrollable-container {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.scrollable-container::-webkit-scrollbar {
+    width: 3px;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+
+.scrollable-container2 {
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.scrollable-container2::-webkit-scrollbar {
+    width: 3px;
+}
+
+.scrollable-container2::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
