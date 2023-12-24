@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     loadTasksFromLocalStorage('todo-container');
+    loadTasksFromLocalStorage('todo-container2');
     loadTasksFromLocalStorage('done-container');
-    loadStickyNotesFromLocalStorage('sticky-notes-list');
 });
 
 function allowDrop(event) {
@@ -26,11 +26,12 @@ function drop(event) {
     draggedElement.classList.toggle('done', event.target.id === 'done-container');
 
     saveTasksToLocalStorage('todo-container');
+    saveTasksToLocalStorage('todo-container2');
     saveTasksToLocalStorage('done-container');
 }
 
 function addTask(containerId) {
-    const taskText = document.getElementById('new-task').innerText;
+    const taskText = document.activeElement.innerText;
     if (taskText.trim() !== '') {
         const container = document.getElementById(containerId);
         const task = document.createElement('div');
@@ -40,9 +41,9 @@ function addTask(containerId) {
         task.addEventListener('dragstart', drag);
         task.innerText = taskText;
         container.querySelector('div').appendChild(task);
-        document.getElementById('new-task').innerText = ''; 
+        document.activeElement.innerText = '';
 
-        saveTasksToLocalStorage('todo-container');
+        saveTasksToLocalStorage(containerId);
         saveTasksToLocalStorage('done-container');
     }
 }
@@ -54,10 +55,10 @@ document.getElementById('new-task').addEventListener('keydown', function (event)
     }
 });
 
-document.getElementById('new-task').addEventListener('input', function (event) {
-    if (event.inputType === 'insertParagraph') {
+document.getElementById('new-task2').addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
         event.preventDefault();
-        addTask('todo-container');
+        addTask('todo-container2');
     }
 });
 
@@ -72,9 +73,7 @@ function addStickyNote() {
         note.addEventListener('dragstart', drag);
         note.innerHTML = noteText;
         notesContainer.appendChild(note);
-        document.getElementById('new-sticky-note').innerText = ''; 
-
-        saveStickyNotesToLocalStorage('sticky-notes-list');
+        document.getElementById('new-sticky-note').innerText = '';
     }
 }
 
@@ -90,6 +89,7 @@ function deleteTask(event) {
         taskElement.parentNode.removeChild(taskElement);
 
         saveTasksToLocalStorage('todo-container');
+        saveTasksToLocalStorage('todo-container2');
         saveTasksToLocalStorage('done-container');
     }
 }
@@ -152,4 +152,3 @@ function saveTasksToLocalStorage(containerId) {
     const tasks = Array.from(container.querySelectorAll('.task')).map(task => task.innerText.trim());
     localStorage.setItem(containerId, JSON.stringify(tasks));
 }
-
